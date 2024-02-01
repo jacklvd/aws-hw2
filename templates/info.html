@@ -11,6 +11,17 @@
     <p>First Name: {{ details.first_name }}</p>
     <p>Last Name: {{ details.last_name }}</p>
     <p>Email: {{ details.email }}</p>
+    {% if file_info %}
+    <p>
+      Uploaded File:
+      <a
+        href="{{ url_for('uploaded_file', filename=file_info.filename) }}"
+        download
+        >{{ file_info.filename }}</a
+      >
+    </p>
+    <p>Word Count: {{ file_info.word_count }}</p>
+    {% endif %}
     <a href="{{ url_for('home') }}">Home</a>
   </body>
 </html>
